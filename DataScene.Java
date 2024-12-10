@@ -2,13 +2,19 @@ import org.code.theater.*;
 
 public class DataScene extends Scene {
 
+  /**
+   * Creates a new array of dogs called canine
+   */
+  
  private Dog[] canine;     
 
   
   public DataScene() {
     canine = createCanine();
   }
-
+  /**
+   * Sets the dog list to include the dog names and life expectancy txt.
+   */
  
   public Dog[] createCanine() {
     String[] dogNamesArray = FileReader.toStringArray("DogNames.txt");
@@ -22,10 +28,24 @@ public class DataScene extends Scene {
     return canineArray;
   }
 
+    /**
+   * Gets a random dog from the canine list
+   */
 public Dog getRandomDog() {
   int randomIndex = (int) (Math.random() * canine.length);
   return canine[randomIndex];
 }
+
+
+
+  /**
+   * Prints out info in the console dog.
+   * sets up the lifeExpectancy and sets up what face should be equal to what life expectancy
+   * sets the drawing in the theater
+   */
+
+
+  
   public void drawScene() {
 Dog randomDog = getRandomDog();
     System.out.println("Dog: " + randomDog.getDogName());
@@ -44,7 +64,6 @@ Dog randomDog = getRandomDog();
       face = ":'( ";
     }
 
-// This is where I need help to put info in the theater class
     setTextHeight(50);
     drawText(face, 100, 100);
  
@@ -59,6 +78,7 @@ Dog randomDog = getRandomDog();
 
   
 }
+
 
 
  
